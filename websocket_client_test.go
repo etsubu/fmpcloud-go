@@ -9,11 +9,6 @@ func TestWebsocketClient(t *testing.T) {
 	websocketClient, err := NewWebsocketClient(WebsocketConfig{
 		APIKey:       "demo",
 		WebsocketUrl: WebsocketStock,
-		PingPongCfg: &PingPongConfig{
-			IsEnabled:  true,
-			PongWait:   DefaultPongWait,
-			PingPeriod: DefaultPingPeriod,
-		},
 	})
 	if err != nil {
 		t.Fatal(err.Error())
