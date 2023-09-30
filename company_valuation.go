@@ -2,11 +2,11 @@ package fmpcloud
 
 import (
 	"fmt"
+	"github.com/goccy/go-json"
 	"strings"
 	"time"
 
 	"github.com/gocarina/gocsv"
-	jsoniter "github.com/json-iterator/go"
 	"github.com/spacecodewor/fmpcloud-go/objects"
 )
 
@@ -98,7 +98,7 @@ func (c *CompanyValuation) RssFeed() (fList []objects.RssFeed, err error) {
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &fList)
+	err = json.Unmarshal(data.Body(), &fList)
 	if err != nil {
 		return nil, err
 	}
@@ -122,7 +122,7 @@ func (c *CompanyValuation) EarningCalendar(from, to *time.Time) (eList []objects
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &eList)
+	err = json.Unmarshal(data.Body(), &eList)
 	if err != nil {
 		return nil, err
 	}
@@ -146,7 +146,7 @@ func (c *CompanyValuation) EarningCalendarConfirmed(from, to *time.Time) (eList 
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &eList)
+	err = json.Unmarshal(data.Body(), &eList)
 	if err != nil {
 		return nil, err
 	}
@@ -161,7 +161,7 @@ func (c *CompanyValuation) EarningSurpriseList(symbol string) (eList []objects.E
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &eList)
+	err = json.Unmarshal(data.Body(), &eList)
 	if err != nil {
 		return nil, err
 	}
@@ -181,7 +181,7 @@ func (c *CompanyValuation) EarningCallTranscript(req objects.RequestEarningCallT
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &tList)
+	err = json.Unmarshal(data.Body(), &tList)
 	if err != nil {
 		return nil, err
 	}
@@ -196,7 +196,7 @@ func (c *CompanyValuation) HistoryEarningCalendar(symbol string) (eList []object
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &eList)
+	err = json.Unmarshal(data.Body(), &eList)
 	if err != nil {
 		return nil, err
 	}
@@ -220,7 +220,7 @@ func (c *CompanyValuation) IPOCalendar(from, to *time.Time) (ipoList []objects.I
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &ipoList)
+	err = json.Unmarshal(data.Body(), &ipoList)
 	if err != nil {
 		return nil, err
 	}
@@ -244,7 +244,7 @@ func (c *CompanyValuation) IPOCalendarConfirmed(from, to *time.Time) (ipoList []
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &ipoList)
+	err = json.Unmarshal(data.Body(), &ipoList)
 	if err != nil {
 		return nil, err
 	}
@@ -268,7 +268,7 @@ func (c *CompanyValuation) IPOCalendarProspectus(from, to *time.Time) (ipoList [
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &ipoList)
+	err = json.Unmarshal(data.Body(), &ipoList)
 	if err != nil {
 		return nil, err
 	}
@@ -292,7 +292,7 @@ func (c *CompanyValuation) SplitCalendar(from, to *time.Time) (sList []objects.S
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &sList)
+	err = json.Unmarshal(data.Body(), &sList)
 	if err != nil {
 		return nil, err
 	}
@@ -316,7 +316,7 @@ func (c *CompanyValuation) DividendCalendar(from, to *time.Time) (dList []object
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &dList)
+	err = json.Unmarshal(data.Body(), &dList)
 	if err != nil {
 		return nil, err
 	}
@@ -331,7 +331,7 @@ func (c *CompanyValuation) InstitutionalHolders(symbol string) (hList []objects.
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &hList)
+	err = json.Unmarshal(data.Body(), &hList)
 	if err != nil {
 		return nil, err
 	}
@@ -346,7 +346,7 @@ func (c *CompanyValuation) MutualFundHolders(symbol string) (hList []objects.Mut
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &hList)
+	err = json.Unmarshal(data.Body(), &hList)
 	if err != nil {
 		return nil, err
 	}
@@ -361,7 +361,7 @@ func (c *CompanyValuation) ETFHolders(symbol string) (hList []objects.ETFHolder,
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &hList)
+	err = json.Unmarshal(data.Body(), &hList)
 	if err != nil {
 		return nil, err
 	}
@@ -376,7 +376,7 @@ func (c *CompanyValuation) ETFStockExposure(symbol string) (eList []objects.ETFS
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &eList)
+	err = json.Unmarshal(data.Body(), &eList)
 	if err != nil {
 		return nil, err
 	}
@@ -391,7 +391,7 @@ func (c *CompanyValuation) ETFSectorWeightings(symbol string) (sList []objects.E
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &sList)
+	err = json.Unmarshal(data.Body(), &sList)
 	if err != nil {
 		return nil, err
 	}
@@ -406,7 +406,7 @@ func (c *CompanyValuation) ETFCountryWeightings(symbol string) (cList []objects.
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &cList)
+	err = json.Unmarshal(data.Body(), &cList)
 	if err != nil {
 		return nil, err
 	}
@@ -426,7 +426,7 @@ func (c *CompanyValuation) IncomeStatement(req objects.RequestIncomeStatement) (
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &sList)
+	err = json.Unmarshal(data.Body(), &sList)
 	if err != nil {
 		return nil, err
 	}
@@ -446,7 +446,7 @@ func (c *CompanyValuation) IncomeStatementGrowth(req objects.RequestIncomeStatem
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &sList)
+	err = json.Unmarshal(data.Body(), &sList)
 	if err != nil {
 		return nil, err
 	}
@@ -466,7 +466,7 @@ func (c *CompanyValuation) BalanceSheetStatement(req objects.RequestBalanceSheet
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &sList)
+	err = json.Unmarshal(data.Body(), &sList)
 	if err != nil {
 		return nil, err
 	}
@@ -486,7 +486,7 @@ func (c *CompanyValuation) BalanceSheetStatementGrowth(req objects.RequestBalanc
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &sList)
+	err = json.Unmarshal(data.Body(), &sList)
 	if err != nil {
 		return nil, err
 	}
@@ -506,7 +506,7 @@ func (c *CompanyValuation) CashFlowStatement(req objects.RequestCashFlowStatemen
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &sList)
+	err = json.Unmarshal(data.Body(), &sList)
 	if err != nil {
 		return nil, err
 	}
@@ -526,7 +526,7 @@ func (c *CompanyValuation) CashFlowStatementGrowth(req objects.RequestCashFlowSt
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &sList)
+	err = json.Unmarshal(data.Body(), &sList)
 	if err != nil {
 		return nil, err
 	}
@@ -546,7 +546,7 @@ func (c *CompanyValuation) IncomeStatementAsReported(req objects.RequestIncomeSt
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &sList)
+	err = json.Unmarshal(data.Body(), &sList)
 	if err != nil {
 		return nil, err
 	}
@@ -566,7 +566,7 @@ func (c *CompanyValuation) BalanceSheetStatementAsReported(req objects.RequestBa
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &sList)
+	err = json.Unmarshal(data.Body(), &sList)
 	if err != nil {
 		return nil, err
 	}
@@ -586,7 +586,7 @@ func (c *CompanyValuation) CashFlowStatementAsReported(req objects.RequestCashFl
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &sList)
+	err = json.Unmarshal(data.Body(), &sList)
 	if err != nil {
 		return nil, err
 	}
@@ -606,7 +606,7 @@ func (c *CompanyValuation) FullFinancialStatementAsReported(req objects.RequestF
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &sList)
+	err = json.Unmarshal(data.Body(), &sList)
 	if err != nil {
 		return nil, err
 	}
@@ -626,7 +626,7 @@ func (c *CompanyValuation) FinancialRatios(req objects.RequestFinancialRatios) (
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &rList)
+	err = json.Unmarshal(data.Body(), &rList)
 	if err != nil {
 		return nil, err
 	}
@@ -641,7 +641,7 @@ func (c *CompanyValuation) FinancialRatiosTTM(symbol string) (rList []objects.Fi
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &rList)
+	err = json.Unmarshal(data.Body(), &rList)
 	if err != nil {
 		return nil, err
 	}
@@ -661,7 +661,7 @@ func (c *CompanyValuation) KeyMetrics(req objects.RequestKeyMetrics) (mList []ob
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &mList)
+	err = json.Unmarshal(data.Body(), &mList)
 	if err != nil {
 		return nil, err
 	}
@@ -676,7 +676,7 @@ func (c *CompanyValuation) KeyMetricsTTM(symbol string) (mList []objects.KeyMetr
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &mList)
+	err = json.Unmarshal(data.Body(), &mList)
 	if err != nil {
 		return nil, err
 	}
@@ -696,7 +696,7 @@ func (c *CompanyValuation) EnterpriseValue(req objects.RequestEnterpriseValue) (
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &vList)
+	err = json.Unmarshal(data.Body(), &vList)
 	if err != nil {
 		return nil, err
 	}
@@ -716,7 +716,7 @@ func (c *CompanyValuation) FinancialStatementsGrowth(req objects.RequestFinancia
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &vList)
+	err = json.Unmarshal(data.Body(), &vList)
 	if err != nil {
 		return nil, err
 	}
@@ -731,7 +731,7 @@ func (c *CompanyValuation) DiscountedCashFlow(symbol string) (vList []objects.Di
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &vList)
+	err = json.Unmarshal(data.Body(), &vList)
 	if err != nil {
 		return nil, err
 	}
@@ -749,7 +749,7 @@ func (c *CompanyValuation) DailyDiscountedCashFlow(req objects.RequestDailyDisco
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &vList)
+	err = json.Unmarshal(data.Body(), &vList)
 	if err != nil {
 		return nil, err
 	}
@@ -769,7 +769,7 @@ func (c *CompanyValuation) HistoryDiscountedCashFlow(req objects.RequestHistoryD
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &vList)
+	err = json.Unmarshal(data.Body(), &vList)
 	if err != nil {
 		return nil, err
 	}
@@ -784,7 +784,7 @@ func (c *CompanyValuation) Rating(symbol string) (rList []objects.Rating, err er
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &rList)
+	err = json.Unmarshal(data.Body(), &rList)
 	if err != nil {
 		return nil, err
 	}
@@ -802,7 +802,7 @@ func (c *CompanyValuation) DailyHistoryRating(req objects.RequestRating) (rList 
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &rList)
+	err = json.Unmarshal(data.Body(), &rList)
 	if err != nil {
 		return nil, err
 	}
@@ -817,7 +817,7 @@ func (c *CompanyValuation) MarketCapitalization(symbol string) (rList []objects.
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &rList)
+	err = json.Unmarshal(data.Body(), &rList)
 	if err != nil {
 		return nil, err
 	}
@@ -835,7 +835,7 @@ func (c *CompanyValuation) DailyHistoryMarketCapitalization(req objects.RequestM
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &rList)
+	err = json.Unmarshal(data.Body(), &rList)
 	if err != nil {
 		return nil, err
 	}
@@ -915,7 +915,7 @@ func (c *CompanyValuation) StockScreener(req objects.RequestStockScreener) (sLis
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &sList)
+	err = json.Unmarshal(data.Body(), &sList)
 	if err != nil {
 		return nil, err
 	}
@@ -933,7 +933,7 @@ func (c *CompanyValuation) DelstedCompanies(limit int64) (cList []objects.Delste
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &cList)
+	err = json.Unmarshal(data.Body(), &cList)
 	if err != nil {
 		return nil, err
 	}
@@ -953,7 +953,7 @@ func (c *CompanyValuation) StockNews(req objects.RequestStockNews) (vList []obje
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &vList)
+	err = json.Unmarshal(data.Body(), &vList)
 	if err != nil {
 		return nil, err
 	}
@@ -973,7 +973,7 @@ func (c *CompanyValuation) AnalystEstimates(req objects.RequestAnalystEstimates)
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &vList)
+	err = json.Unmarshal(data.Body(), &vList)
 	if err != nil {
 		return nil, err
 	}
@@ -991,7 +991,7 @@ func (c *CompanyValuation) Grade(req objects.RequestGrade) (gList []objects.Grad
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &gList)
+	err = json.Unmarshal(data.Body(), &gList)
 	if err != nil {
 		return nil, err
 	}
@@ -1009,7 +1009,7 @@ func (c *CompanyValuation) AnalystStockRecommendations(req objects.RequestAnalys
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &rList)
+	err = json.Unmarshal(data.Body(), &rList)
 	if err != nil {
 		return nil, err
 	}
@@ -1027,7 +1027,7 @@ func (c *CompanyValuation) PressReleases(req objects.RequestPressReleases) (prLi
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &prList)
+	err = json.Unmarshal(data.Body(), &prList)
 	if err != nil {
 		return nil, err
 	}
@@ -1042,7 +1042,7 @@ func (c *CompanyValuation) FinancialStatementList() (fsList []string, err error)
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &fsList)
+	err = json.Unmarshal(data.Body(), &fsList)
 	if err != nil {
 		return nil, err
 	}
@@ -1066,7 +1066,7 @@ func (c *CompanyValuation) EconomicCalendar(req objects.RequestEconomicCalendar)
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &eList)
+	err = json.Unmarshal(data.Body(), &eList)
 	if err != nil {
 		return nil, err
 	}
@@ -1086,7 +1086,7 @@ func (c *CompanyValuation) SECFilings(req objects.RequestSECFilings) (eList []ob
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &eList)
+	err = json.Unmarshal(data.Body(), &eList)
 	if err != nil {
 		return nil, err
 	}
@@ -1101,7 +1101,7 @@ func (c *CompanyValuation) HistoryEconomicCalendar(req objects.RequestHistoryEco
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &hList)
+	err = json.Unmarshal(data.Body(), &hList)
 	if err != nil {
 		return nil, err
 	}
@@ -1116,7 +1116,7 @@ func (c *CompanyValuation) EconomicCalendarEventList() (eList []objects.Economic
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &eList)
+	err = json.Unmarshal(data.Body(), &eList)
 	if err != nil {
 		return nil, err
 	}
@@ -1131,7 +1131,7 @@ func (c *CompanyValuation) ETFList() (fList []objects.ETF, err error) {
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &fList)
+	err = json.Unmarshal(data.Body(), &fList)
 	if err != nil {
 		return nil, err
 	}
@@ -1146,7 +1146,7 @@ func (c *CompanyValuation) AvailableTradedList() (fList []objects.AvailableTrade
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &fList)
+	err = json.Unmarshal(data.Body(), &fList)
 	if err != nil {
 		return nil, err
 	}
@@ -1161,7 +1161,7 @@ func (c *CompanyValuation) CompanyOutlook(symbol string) (co *objects.CompanyOut
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &co)
+	err = json.Unmarshal(data.Body(), &co)
 	if err != nil {
 		return nil, err
 	}
@@ -1176,7 +1176,7 @@ func (c *CompanyValuation) EmployeeCount(symbol string) (eList *objects.Employee
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &eList)
+	err = json.Unmarshal(data.Body(), &eList)
 	if err != nil {
 		return nil, err
 	}
@@ -1200,7 +1200,7 @@ func (c *CompanyValuation) SocialSentimentTrending(tType, source string) (sList 
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &sList)
+	err = json.Unmarshal(data.Body(), &sList)
 	if err != nil {
 		return nil, err
 	}
@@ -1224,7 +1224,7 @@ func (c *CompanyValuation) SocialSentimentChange(tType, source string) (sList []
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &sList)
+	err = json.Unmarshal(data.Body(), &sList)
 	if err != nil {
 		return nil, err
 	}
@@ -1239,7 +1239,7 @@ func (c *CompanyValuation) HistoricalSocialSentiment(symbol string) (sList []obj
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &sList)
+	err = json.Unmarshal(data.Body(), &sList)
 	if err != nil {
 		return nil, err
 	}
@@ -1254,7 +1254,7 @@ func (c *CompanyValuation) Score(symbol string) (sList []objects.Score, err erro
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &sList)
+	err = json.Unmarshal(data.Body(), &sList)
 	if err != nil {
 		return nil, err
 	}
@@ -1309,7 +1309,7 @@ func (c *CompanyValuation) BulkBalanceSheetStatement(year int, period string) (s
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &sList)
+	err = json.Unmarshal(data.Body(), &sList)
 	if err != nil {
 		return nil, err
 	}
@@ -1329,7 +1329,7 @@ func (c *CompanyValuation) BulkCashFlowStatement(year int, period string) (sList
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &sList)
+	err = json.Unmarshal(data.Body(), &sList)
 	if err != nil {
 		return nil, err
 	}
@@ -1349,7 +1349,7 @@ func (c *CompanyValuation) BulkKeyMetrics(year int, period string) (sList []obje
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &sList)
+	err = json.Unmarshal(data.Body(), &sList)
 	if err != nil {
 		return nil, err
 	}
@@ -1369,7 +1369,7 @@ func (c *CompanyValuation) BulkRatios(year int, period string) (sList []objects.
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &sList)
+	err = json.Unmarshal(data.Body(), &sList)
 	if err != nil {
 		return nil, err
 	}
@@ -1444,7 +1444,7 @@ func (c *CompanyValuation) SharesFloatAll() (sList []objects.SharesFloat, err er
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &sList)
+	err = json.Unmarshal(data.Body(), &sList)
 	if err != nil {
 		return nil, err
 	}
@@ -1464,7 +1464,7 @@ func (c *CompanyValuation) SharesFloat(symbol string) (ipoList []objects.IPOCale
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &ipoList)
+	err = json.Unmarshal(data.Body(), &ipoList)
 	if err != nil {
 		return nil, err
 	}

@@ -1,7 +1,6 @@
 package fmpcloud
 
 import (
-	jsoniter "github.com/json-iterator/go"
 	"time"
 
 	"github.com/go-resty/resty/v2"
@@ -48,9 +47,6 @@ const (
 	apiDefaultKey                      = "demo"
 	apiDefaultTimeout                  = 25
 )
-
-// Jsoniter config
-var json = jsoniter.ConfigCompatibleWithStandardLibrary
 
 // NewAPIClient creates a new API client
 func NewAPIClient(cfg Config) (*APIClient, error) {

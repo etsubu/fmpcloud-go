@@ -2,10 +2,9 @@ package fmpcloud
 
 import (
 	"fmt"
-	"time"
-
-	jsoniter "github.com/json-iterator/go"
+	"github.com/goccy/go-json"
 	"github.com/spacecodewor/fmpcloud-go/objects"
+	"time"
 )
 
 // Url const for request
@@ -28,7 +27,7 @@ func (c *Crypto) AvalibleSymbols() (sList []objects.CryptoSymbol, err error) {
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &sList)
+	err = json.Unmarshal(data.Body(), &sList)
 	if err != nil {
 		return nil, err
 	}
@@ -43,7 +42,7 @@ func (c *Crypto) Quotes() (qList []objects.CryptoQuote, err error) {
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &qList)
+	err = json.Unmarshal(data.Body(), &qList)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +66,7 @@ func (c *Crypto) Candles(req objects.RequestCryptoCandleList) (cList []objects.C
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &cList)
+	err = json.Unmarshal(data.Body(), &cList)
 	if err != nil {
 		return nil, err
 	}
@@ -86,7 +85,7 @@ func (c *Crypto) DailyLine(symbol string, serieType objects.CryptoSerieType) (cL
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &cList)
+	err = json.Unmarshal(data.Body(), &cList)
 	if err != nil {
 		return nil, err
 	}
@@ -101,7 +100,7 @@ func (c *Crypto) DailyChangeAndVolume(symbol string) (cList *objects.CryptoDaily
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &cList)
+	err = json.Unmarshal(data.Body(), &cList)
 	if err != nil {
 		return nil, err
 	}
@@ -121,7 +120,7 @@ func (c *Crypto) DailySpecificPeriod(symbol string, from time.Time, to time.Time
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &cList)
+	err = json.Unmarshal(data.Body(), &cList)
 	if err != nil {
 		return nil, err
 	}
@@ -140,7 +139,7 @@ func (c *Crypto) DailyLastNDays(symbol string, days int) (cList *objects.CryptoD
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &cList)
+	err = json.Unmarshal(data.Body(), &cList)
 	if err != nil {
 		return nil, err
 	}

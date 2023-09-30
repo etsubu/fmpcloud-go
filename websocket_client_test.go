@@ -7,15 +7,15 @@ import (
 
 func TestWebsocketClient(t *testing.T) {
 	websocketClient, err := NewWebsocketClient(WebsocketConfig{
-		APIKey:       "demo",
-		WebsocketUrl: WebsocketStock,
+		APIKey: "demo",
+		URL:    WebsocketStock,
 	})
 	if err != nil {
 		t.Fatal(err.Error())
 	}
 
 	go func() {
-		err = websocketClient.RunReadLoop(func(event interface{}) error {
+		err = websocketClient.RunReadLoop(func(event Event) error {
 			t.Log("Got event: ", event)
 			return nil
 		})

@@ -5,9 +5,9 @@ go 1.19
 require (
 	github.com/go-resty/resty/v2 v2.7.0
 	github.com/gocarina/gocsv v0.0.0-20221216233619-1fea7ae8d380
+	github.com/goccy/go-json v0.10.2
 	github.com/gorilla/websocket v1.5.0
 	github.com/jinzhu/now v1.1.1
-	github.com/json-iterator/go v1.1.12
 	github.com/pkg/errors v0.9.1
 	go.uber.org/zap v1.24.0
 )

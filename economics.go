@@ -1,10 +1,9 @@
 package fmpcloud
 
 import (
-	"time"
-
-	jsoniter "github.com/json-iterator/go"
+	"github.com/goccy/go-json"
 	"github.com/spacecodewor/fmpcloud-go/objects"
+	"time"
 )
 
 // Url const for request
@@ -26,7 +25,7 @@ func (e *Economics) MarketRiskPremium() (mList []objects.EconomicsMarketRisk, er
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &mList)
+	err = json.Unmarshal(data.Body(), &mList)
 	if err != nil {
 		return nil, err
 	}
@@ -46,7 +45,7 @@ func (e *Economics) TreasuryRates(from time.Time, to time.Time) (tList []objects
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &tList)
+	err = json.Unmarshal(data.Body(), &tList)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +69,7 @@ func (e *Economics) Indicator(indicator string, from *time.Time, to *time.Time) 
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &iList)
+	err = json.Unmarshal(data.Body(), &iList)
 	if err != nil {
 		return nil, err
 	}

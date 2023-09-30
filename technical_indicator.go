@@ -2,8 +2,7 @@ package fmpcloud
 
 import (
 	"fmt"
-
-	jsoniter "github.com/json-iterator/go"
+	"github.com/goccy/go-json"
 	"github.com/spacecodewor/fmpcloud-go/objects"
 )
 
@@ -29,7 +28,7 @@ func (t *TechnicalIndicator) Indicators(req objects.RequestIndicators) (iList []
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &iList)
+	err = json.Unmarshal(data.Body(), &iList)
 	if err != nil {
 		return nil, err
 	}

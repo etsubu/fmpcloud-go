@@ -2,10 +2,9 @@ package fmpcloud
 
 import (
 	"fmt"
-	"time"
-
-	jsoniter "github.com/json-iterator/go"
+	"github.com/goccy/go-json"
 	"github.com/spacecodewor/fmpcloud-go/objects"
+	"time"
 )
 
 // Url const for request
@@ -29,7 +28,7 @@ func (f *Form13F) List() (fList []objects.Form, err error) {
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &fList)
+	err = json.Unmarshal(data.Body(), &fList)
 	if err != nil {
 		return nil, err
 	}
@@ -44,7 +43,7 @@ func (f *Form13F) SearchByName(name string) (fList []objects.Form, err error) {
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &fList)
+	err = json.Unmarshal(data.Body(), &fList)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +58,7 @@ func (f *Form13F) GetCompanyByCIK(cik string) (cList []objects.Form, err error) 
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &cList)
+	err = json.Unmarshal(data.Body(), &cList)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +78,7 @@ func (f *Form13F) ThirteenList(cik string, date *time.Time) (fList []objects.Thi
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &fList)
+	err = json.Unmarshal(data.Body(), &fList)
 	if err != nil {
 		return nil, err
 	}
@@ -94,7 +93,7 @@ func (f *Form13F) CusipMapper(cusip string) (cList []objects.Cusip, err error) {
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &cList)
+	err = json.Unmarshal(data.Body(), &cList)
 	if err != nil {
 		return nil, err
 	}

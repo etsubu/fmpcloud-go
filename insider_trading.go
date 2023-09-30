@@ -2,7 +2,7 @@ package fmpcloud
 
 import (
 	"fmt"
-	jsoniter "github.com/json-iterator/go"
+	"github.com/goccy/go-json"
 	"github.com/spacecodewor/fmpcloud-go/objects"
 	"strings"
 )
@@ -55,7 +55,7 @@ func (i *InsiderTrading) List(req objects.RequestInsiderTrading) (iList []object
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &iList)
+	err = json.Unmarshal(data.Body(), &iList)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +74,7 @@ func (i *InsiderTrading) RSSFeed(limit int64) (iList []objects.InsiderTradingRSS
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &iList)
+	err = json.Unmarshal(data.Body(), &iList)
 	if err != nil {
 		return nil, err
 	}
@@ -89,7 +89,7 @@ func (i *InsiderTrading) TransactionType() (tList []string, err error) {
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &tList)
+	err = json.Unmarshal(data.Body(), &tList)
 	if err != nil {
 		return nil, err
 	}
@@ -104,7 +104,7 @@ func (i *InsiderTrading) MapperCikCompany(symbol string) (iList []objects.Inside
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &iList)
+	err = json.Unmarshal(data.Body(), &iList)
 	if err != nil {
 		return nil, err
 	}
@@ -124,7 +124,7 @@ func (i *InsiderTrading) MapperCikName(name *string) (iList []objects.InsiderTra
 		return nil, err
 	}
 
-	err = jsoniter.Unmarshal(data.Body(), &iList)
+	err = json.Unmarshal(data.Body(), &iList)
 	if err != nil {
 		return nil, err
 	}
