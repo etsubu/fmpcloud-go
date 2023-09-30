@@ -1,4 +1,4 @@
-module github.com/spacecodewor/fmpcloud-go
+module github.com/etsubu/fmpcloud-go
 
 go 1.21
 
